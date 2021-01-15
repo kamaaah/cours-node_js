@@ -5,7 +5,10 @@ var http = require('http');
 var url = require('url');
 var querystring = require('querystring');
 
-// 1er Méthode:
+// ----------- 1er Méthode:
+
+//  -----la méthode res. end() permet d'envoyer le ou les valeurs passées en paramètre dans le navigator
+// ------ainsi une page html s'afficihe ds le browser
 
 // var server = http.createServer(function(req, res) {
 //     res.writeHead(200, { "ContentType": "text/plain" });
@@ -54,8 +57,8 @@ var querystring = require('querystring');
 
 // http://localhost:8080?prenom=john&nom=wick
 // var server = http.createServer(function(req, res) {
-//     // la variable => chemin permet de récupérer une url et de la renvoyer dans la réponse
-//     // pour la réafficher dans la page
+//      // la variable => chemin permet de récupérer une url et de la renvoyer dans la réponse
+//      // pour la réafficher dans la page
 //     var params = querystring.parse(url.parse(req.url).query);
 //     console.log(params);
 //     res.writeHead(200, { ContentType: 'text/plain' });
@@ -64,7 +67,6 @@ var querystring = require('querystring');
 //     } else {
 //         res.write('Je dois bien avoir un prénom et un nom, non ?');
 //     }
-
 //     res.end();
 // });
 
@@ -144,12 +146,12 @@ server.listen(8080);
 
 
 
-// fonction math qui va créer un tableau de valeurs *********
+// ******** fonction math qui va créer un tableau de valeurs *********
 // console.log(math.map([1, 5, 3], function(a) {
 //     return a * 2;
 // }));
 
-// appelle simple de la function module.exports = direBonjour
+// **********appelle simple de la function module.exports = direBonjour
 // mod();
 
 // mod.direBonjour();
