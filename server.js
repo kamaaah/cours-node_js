@@ -10,16 +10,16 @@ var querystring = require('querystring');
 // var server = http.createServer(function(req, res) {
 //     res.writeHead(200, { "ContentType": "text/plain" });
 //     // res.end('Hello Wold');
-//     res.write(
-//         '<!DOCTYPE html>' +
-//         '<html>' +
+//     res.write('<!DOCTYPE html>' +
+//       '<html>' +
 //         '<head>' +
-//         '<title>Ma page Node js</title>' +
-//         '</head>' +
-//         '<body>' +
-//         '<p>Hello world ! est ce que ca marche </p>' +
-//         '</body>' +
-//         '</html>'
+//             '<meta charset="UTF-8"/>' +
+//             '<title>Ma page Node js</title>' +
+//        '</head>' +
+//        '<body>' +
+//             '<p>Hello world ! est ce que ca marche </p>' +
+//        '</body>' +
+//     '</html>'
 //     );
 // });
 
@@ -28,15 +28,31 @@ var querystring = require('querystring');
 // var server = http.createServer(function(req, res) {
 //     // la variable => chemin permet de récupérer une url et de la renvoyer dans la réponse
 //     // pour la réafficher dans la page
-//     var chemin = url.parse(req.url).pathname;
+//     var page = url.parse(req.url).pathname;
 //     console.log(chemin);
 //     res.writeHead(200, { ContentType: 'text/plain' });
-//     res.write('Hello World, this is requested page : ' + chemin);
+//     res.write('Hello World, this is requested page : ' + page);
+//     res.end();
+// });
+
+
+// ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤ Version Damien ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+// http://localhost:8080/mapage
+// http://localhost:8080
+// var server = http.createServer(function(req, res) {
+//     var page = url.parse(req.url).pathname;
+//     console.log(page);
+//     res.writeHead(200, {
+//         "Content-Type": "text/plain"
+//     });
+//     res.write('Hello world, this is your requested page : ' + page);
 //     res.end();
 // });
 
 //  ---------------- Query String ------------------------
 
+// http://localhost:8080?prenom=john&nom=wick
 // var server = http.createServer(function(req, res) {
 //     // la variable => chemin permet de récupérer une url et de la renvoyer dans la réponse
 //     // pour la réafficher dans la page
@@ -56,7 +72,7 @@ var querystring = require('querystring');
 
 // http://localhost:8080?prenom=john&nom=wick
 // var server = http.createServer(function(req, res) {
-//     // var page = url.parse(req.url).pathname;
+//     var page = url.parse(req.url).pathname;
 //     var params = querystring.parse(url.parse(req.url).query);
 //     res.writeHead(200, { "Content-Type": "text/plain" });
 //     if ('Xaveir' in params && 'Argis' in params) {
@@ -68,36 +84,19 @@ var querystring = require('querystring');
 // });
 // server.listen(8080);
 
-// fonction math qui va créer un tableau de valeurs
-// console.log(math.map([1, 5, 3], function(a) {
-//     return a * 2;
-// }));
 
-// appelle simple de la function module.exports = direBonjour
-// mod();
-
-// mod.direBonjour();
-
-mod.sayHello();
-
-// Utiliser le module os pour afficher :
-// L'architecture de votre machine
-// Le nombre de CPU
-// Le hostname
-// Et la charge moyenne
-
-// console.log(os.arch);
-// console.log(os.cpus());
-// console.log(os.hostname());
-// console.log(os.loadavg());
 // console.log("¤¤¤¤¤¤¤¤¤¤¤¤¤¤ Correction Damien exo ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤");
+
+// -- -- -- -- -- --Enoncé-- -- -- -- -- -- -- --
+// --------------Ecrire un programme qui affiche le resultat d 'une operation
+// --------------arithmetique des nombres passes en parametre
 
 function calcul(tab, operator) {
     var result = '';
     for (var i in tab) {
         result = result + operator + tab[i];
     }
-    return eval(result.substr(1));
+    return eval(result.substring(1));
 }
 var server = http.createServer(function(req, res) {
     var pathname = url.parse(req.url).pathname;
@@ -142,3 +141,30 @@ var server = http.createServer(function(req, res) {
     res.end();
 });
 server.listen(8080);
+
+
+
+// fonction math qui va créer un tableau de valeurs *********
+// console.log(math.map([1, 5, 3], function(a) {
+//     return a * 2;
+// }));
+
+// appelle simple de la function module.exports = direBonjour
+// mod();
+
+// mod.direBonjour();
+
+mod.sayHello();
+// ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  Exo OS ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+// -- -- -- -- -- --Enoncé-- -- -- -- -- -- -- --
+// ---------------Utiliser le module os pour afficher :
+// ---------------L'architecture de votre machine
+// ---------------Le nombre de CPU
+// ---------------Le hostname
+// ---------------Et la charge moyenne
+
+// console.log(os.arch);
+// console.log(os.cpus());
+// console.log(os.hostname());
+// console.log(os.loadavg());
