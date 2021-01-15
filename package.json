@@ -1,0 +1,16 @@
+{
+  "name": "cours-node",
+  "version": "1.0.0",
+  "description": "Node.js est une plateforme logicielle avec une architecture orientée événements \r  qui permet d'utiliser le langage de script JavaScript, initialement développé \r pour une utilisation côté client\r  event-driven : architecture orientée événements\r Les architectures event-driven fournissent du code maintenable, gérer des tâches asynchrones \r  et construire des applications fiables.\r  SYNCHRONE / ASYNCHRONE\r // En informatique, on dit que deux opérations sont synchrones lorsque la seconde attend \r // que la première ait fini son travail pour démarrer, le début de l'opération suivante \r // dépend de la complétude de l'opération précédente.\r // Au contraire, deux opérations sont qualifiées d'asynchrones en informatique lorsqu'elles sont indépendantes \r // c'est-à-dire lorsque la deuxième opération n'a pas besoin d'attendre que la première se termine pour démarrer.\r // Par défaut, le JavaScript est un langage synchrone, bloquant et qui ne s'exécute que sur un seul thread. \r // JavaScript gère les tâches asynchrones avec l'aide de la boucle événementielle\r // boucle événementielle : Construction JavaScript qui permet de terminer une nouvelle tâche tout en attendant une autre\r // Le code asynchrone sera écrit de trois façons : les callbacks, les promesses et les mots-clés async/await.\r // Lorsque JavaScript rencontre une opération asynchrone, comme l'écriture dans un fichier, \r // elle l'ajoute à une table dans sa mémoire. Cette table stocke l'opération, la condition \r // pour qu'elle soit exécutée et la fonction à appeler lorsqu'elle est terminée.\r // Cela peut rapidement poser problème dans un contexte Web :\r // imaginons qu'une de nos fonctions ou qu'une boucle prenne beaucoup de temps à s'exécuter. \r // Tant que cette fonction n'a pas terminé son travail, la suite du script ne peut pas s'exécuter (elle est bloquée) \r // et le programme dans son ensemble parait complètement arrêté du point de vue de l'utilisateur.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "request": "^2.88.2"
+  }
+}
