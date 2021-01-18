@@ -5,6 +5,14 @@
 const { promises } = require('fs');
 const { resolve } = require('path');
 const request = require('request');
+var math = require('lodash');
+var mod = require('./mesModules');
+var os = require('os');
+var http = require('http');
+var url = require('url');
+var querystring = require('querystring');
+
+
 request('https://ghibliapi.herokuapp.com/films', (error, response, body) => {
     // Notre fonction callback vérifie en premier si nous avons reçu une erreur.
     // BEST PRACTICE :  consiste à vérifier d'abord s'il y a des erreurs dans un 
@@ -299,7 +307,7 @@ var ch = "ab ";
 var str = "abbbaaaabaaabb";
 var data = { tableau: str, filter: ch };
 
-function searchStr(data, callback) {
+function searchStr(data) {
     var count = 0;
     while (item > -1) {
         count++;
@@ -308,3 +316,29 @@ function searchStr(data, callback) {
         return callback(null, item);
     }
 }
+
+
+//  Exercice Damien du 15.01.2021
+
+var server = http.createServer(function(req, res) {
+    var pathname = url.parse(req.url).pathname;
+    var params = querystring.parse(url.parse(req.url).query);
+    res.writeHead(200, { 'ContentType': 'text/plain' });
+    var result;
+    if ('a' in paramas && 'b' in params) {
+        if (params === '/addition') {
+            var a = parseInt(params['a']);
+            var b = parseINt(params['b']);
+            result = add(a, b);
+        } else if (pathname === '/soustration') {
+            result = sous(params['a'], params['b']);
+        } else if (pathname === '/multiplication') {
+            result = mul(params['a'], params['b']);
+        } else if (pathname === '/division') {
+            result = div(params['a'], params['b']);
+        }
+    }
+    res.write('Resultat: ' + result);
+    res.end();
+});
+server.listen(8080);

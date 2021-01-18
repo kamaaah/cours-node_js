@@ -67,6 +67,7 @@ var querystring = require('querystring');
 //     } else {
 //         res.write('Je dois bien avoir un prénom et un nom, non ?');
 //     }
+
 //     res.end();
 // });
 
@@ -100,27 +101,29 @@ function calcul(tab, operator) {
     }
     return eval(result.substring(1));
 }
-var server = http.createServer(function(req, res) {
-    var pathname = url.parse(req.url).pathname;
-    var params = querystring.parse(url.parse(req.url).query);
-    res.writeHead(200, { 'Content-type': 'text/plain' });
-    var result;
-    if (pathname === '/addition') {
-        result = calcul(params, '+');
-    } else if (pathname === '/soustraction') {
-        result = calcul(params, '-');
-    } else if (pathname === '/multiplication') {
-        result = calcul(params, '*');
-    } else if (pathname === '/division') {
-        result = calcul(params, '/');
-    }
-    res.write('Resultat : ' + result);
-    res.end();
-});
-var add = (a, b) => a + b;
-var sous = (a, b) => a - b;
-var div = (a, b) => a / b;
-var mul = (a, b) => a * b;
+// var server = http.createServer(function(req, res) {
+//     var pathname = url.parse(req.url).pathname;
+//     var params = querystring.parse(url.parse(req.url).query);
+//     res.writeHead(200, { 'Content-type': 'text/plain' });
+//     var result;
+//     if (pathname === '/addition') {
+//         result = calcul(params, '+');
+//     } else if (pathname === '/soustraction') {
+//         result = calcul(params, '-');
+//     } else if (pathname === '/multiplication') {
+//         result = calcul(params, '*');
+//     } else if (pathname === '/division') {
+//         result = calcul(params, '/');
+//     }
+//     res.write('Resultat : ' + result);
+//     res.end();
+// });
+// var add = (a, b) => a + b;
+// var sous = (a, b) => a - b;
+// var div = (a, b) => a / b;
+// var mul = (a, b) => a * b;
+
+// Solution d'un éléve
 var server = http.createServer(function(req, res) {
     var pathname = url.parse(req.url).pathname;
     var params = querystring.parse(url.parse(req.url).query);
